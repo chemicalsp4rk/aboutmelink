@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Linktree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: url('https://i.imgur.com/XcjXlWN.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: none;
+            transition: transform 0.3s, backdrop-filter 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+            backdrop-filter: none;
+        }
+        .profile img {
+            width: 82px;
+            height: 82px;
+            margin-top: 10px;
+            transition: transform 0.3s;
+            object-fit: cover;
+        }
+        .profile img:hover {
+            transform: rotate(5deg);
+        }
+        .profile h2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .profile p {
+            font-size: 16px;
+            margin-top: 4px;
+            opacity: 0.85;
+        }
+        .links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+        .links a i, .links a img {
+            margin-right: 12px;
+            width: 28px;
+            height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="https://cdn-icons-png.flaticon.com/512/9788/9788644.png" alt="Profile Picture">
+            <h2 id="name" style="display: flex; align-items: center; justify-content: center; gap: 5px;">@_nietmatz <img src="https://cdn-icons-png.flaticon.com/512/12559/12559876.png" alt="Verified" style="width: 33px; height: 33px;"></h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/340/340336.png" alt="Chevron" style="width: 24px; height: 24px; margin: 5px 0;">
+            <p>Stay real, stay humble.</p>
+        </div>
+        <div class="links" id="linkList"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = [
+                { name: "Instagram", url: "https://instagram.com", icon: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png" },
+                { name: "YouTube", url: "https://youtube.com", icon: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png" },
+                { name: "Steam", url: "https://store.steampowered.com", icon: "https://cdn-icons-png.flaticon.com/512/873/873107.png" },
+                { name: "Discord", url: "https://discord.com", icon: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png" }
+            ];
+
+            const linkList = document.getElementById("linkList");
+            linkList.innerHTML = "";
+            
+            links.forEach(link => {
+                const a = document.createElement("a");
+                a.href = link.url;
+                a.target = "_blank";
+                a.innerHTML = `<img src="${link.icon}" alt="${link.name}"> ${link.name}`;
+                linkList.appendChild(a);
+            });
+        });
+    </script>
+</body>
+</html>
